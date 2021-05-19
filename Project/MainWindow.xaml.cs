@@ -80,15 +80,7 @@ namespace Project
                 }
                 else
                 {
-                    //otherwise, reinvoke the click event
-                    (e.Source as FrameworkElement).Dispatcher.BeginInvoke(
-                       new Action(() =>
-                       {
-                           RoutedEventArgs args = new MouseButtonEventArgs(e.MouseDevice, 0, e.ChangedButton);
-                           args.RoutedEvent = UIElement.MouseDownEvent;
-                           (e.OriginalSource as UIElement).RaiseEvent(args);
-                       }),
-                       System.Windows.Threading.DispatcherPriority.Input);
+                    SelectedPerson = myItem;
                 }
             }
         }
